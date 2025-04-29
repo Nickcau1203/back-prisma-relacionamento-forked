@@ -1,4 +1,4 @@
-import userModel from '../models/userModel.js';
+import UserModel from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 
 class AuthController {
@@ -26,7 +26,7 @@ class AuthController {
       }
 
       // Verifica se o usuário já existe
-      const userExists = await UserModel.fyndByEmail(email)
+      const userExists = await UserModel.findByEmail(email)
       if (userExists) {
         return res.status(400).json({ error: "Este email já está em uso!" });
       }
